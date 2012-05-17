@@ -2,8 +2,15 @@
 <resources>
 
     <string name="hello">Hello World, welcome to the VEOS Shell!</string>
-    <string name="app_name">VEOS</string>
+    <string name="app_name">Coast mobile</string>
     <string name="settings">Settings</string>
     <string name="reload">Reload</string>
+    <string name="WelcomeHeader">Welcome to VEOS</string>
+    <string name="showOverviewMap">Show Overview Map</string>
+    <string name="WelcomeDetail">Video Eyes On the Street (VEOS) is a project that tries to capture and
+        reflect the current state of video surveillance in Canada./n
+        You can can look at a map to see surveillance installations around you, browse a list of surveillance near
+        your current location, or you can report a new surveillance installation.</string>
+    <string name="addReport">Add new Report</string>
 
 </resources>
