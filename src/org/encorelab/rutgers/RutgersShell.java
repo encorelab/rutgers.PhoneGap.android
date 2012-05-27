@@ -4,8 +4,11 @@ import org.apache.cordova.DroidGap;
 
 import org.encorelab.rutgers.R;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -13,6 +16,8 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 public class RutgersShell extends DroidGap {
 	
@@ -23,7 +28,23 @@ public class RutgersShell extends DroidGap {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.loadUrl(getAppUrl());
+        setContentView(R.layout.main);
+        //super.loadUrl(getAppUrl());
+    }
+    
+    public void onShowLoginClick(View view) {
+    	ConnectivityManager connMgr = (ConnectivityManager) 
+    	        getSystemService(Context.CONNECTIVITY_SERVICE);
+    	    NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+    	    
+	    if (networkInfo != null && networkInfo.isConnected()) {
+	        // load URL
+	    	super.loadUrl(getAppUrl());
+	    } else {
+	        // display error
+	    	Toast toast = Toast.makeText(getApplicationContext(), "No network connection", Toast.LENGTH_LONG);
+	    	toast.show();
+	    } 
     }
     
     public String getAppUrl() {
@@ -44,7 +65,7 @@ public class RutgersShell extends DroidGap {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.veos, menu);
+        inflater.inflate(R.menu.rutgers, menu);
         return true;
     }
     

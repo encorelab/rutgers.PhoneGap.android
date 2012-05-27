@@ -27,16 +27,12 @@
         android:orientation="horizontal" android:paddingBottom="10dip">
 
         <Button
-            android:id="@+id/ShowOverviewMap"
-            android:layout_width="wrap_content"
+            android:id="@+id/ShowLoginScreen"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/showOverviewMap" />
+            android:text="@string/login"
+            android:onClick="onShowLoginClick" />
 
-        <Button
-            android:id="@+id/AddReport"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/addReport" />
     </LinearLayout>
 
 </LinearLayout>
